@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             txtURL = new System.Windows.Forms.TextBox();
             label1 = new System.Windows.Forms.Label();
             btnDownload = new System.Windows.Forms.Button();
-            btnExportPDF = new System.Windows.Forms.Button();
             progressBar1 = new System.Windows.Forms.ProgressBar();
             txtName = new System.Windows.Forms.TextBox();
             label2 = new System.Windows.Forms.Label();
@@ -41,6 +41,8 @@
             label3 = new System.Windows.Forms.Label();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             dataGridView1 = new System.Windows.Forms.DataGridView();
+            bgwDownloadImage = new System.ComponentModel.BackgroundWorker();
+            saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -48,9 +50,9 @@
             // 
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            flowLayoutPanel1.Location = new System.Drawing.Point(0, 334);
+            flowLayoutPanel1.Location = new System.Drawing.Point(233, 90);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new System.Drawing.Size(800, 156);
+            flowLayoutPanel1.Size = new System.Drawing.Size(555, 395);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // txtURL
@@ -74,22 +76,11 @@
             // 
             btnDownload.Location = new System.Drawing.Point(590, 12);
             btnDownload.Name = "btnDownload";
-            btnDownload.Size = new System.Drawing.Size(95, 55);
+            btnDownload.Size = new System.Drawing.Size(198, 55);
             btnDownload.TabIndex = 2;
-            btnDownload.Text = "Download";
+            btnDownload.Text = "Start";
             btnDownload.UseVisualStyleBackColor = true;
-            btnDownload.Click += btnDownload_ClickAsync;
-            // 
-            // btnExportPDF
-            // 
-            btnExportPDF.Enabled = false;
-            btnExportPDF.Location = new System.Drawing.Point(693, 11);
-            btnExportPDF.Name = "btnExportPDF";
-            btnExportPDF.Size = new System.Drawing.Size(95, 56);
-            btnExportPDF.TabIndex = 3;
-            btnExportPDF.Text = "Export PDF";
-            btnExportPDF.UseVisualStyleBackColor = true;
-            btnExportPDF.Click += btnExportPDF_ClickAsync;
+            btnDownload.Click += btnDownload_Click;
             // 
             // progressBar1
             // 
@@ -147,15 +138,21 @@
             // 
             backgroundWorker1.DoWork += backgroundWorker1_DoWork;
             backgroundWorker1.ProgressChanged += backgroundWorker1_ProgressChanged;
+            backgroundWorker1.RunWorkerCompleted += backgroundWorker1_RunWorkerCompleted;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new System.Drawing.Point(0, 90);
+            dataGridView1.Location = new System.Drawing.Point(12, 90);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new System.Drawing.Size(800, 238);
+            dataGridView1.Size = new System.Drawing.Size(215, 395);
             dataGridView1.TabIndex = 6;
+            // 
+            // bgwDownloadImage
+            // 
+            bgwDownloadImage.DoWork += bgwDownloadImage_DoWork;
+            bgwDownloadImage.RunWorkerCompleted += bgwDownloadImage_RunWorkerCompleted;
             // 
             // Form1
             // 
@@ -165,7 +162,6 @@
             Controls.Add(dataGridView1);
             Controls.Add(lblLoading);
             Controls.Add(progressBar1);
-            Controls.Add(btnExportPDF);
             Controls.Add(btnDownload);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -174,8 +170,12 @@
             Controls.Add(txtName);
             Controls.Add(txtURL);
             Controls.Add(flowLayoutPanel1);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "Form1";
-            Text = "Download GG";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Download GG (itdongquoctien@gmail.com)";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -187,7 +187,6 @@
         private System.Windows.Forms.TextBox txtURL;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDownload;
-        private System.Windows.Forms.Button btnExportPDF;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label2;
@@ -196,5 +195,7 @@
         private System.Windows.Forms.Label label3;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.ComponentModel.BackgroundWorker bgwDownloadImage;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

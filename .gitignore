@@ -4,16 +4,7 @@
 
 /DownloadGGDriverPDF/WinFormsApp1/bin/Debug/netcoreapp3.1
 /DownloadGGDriverPDF/WinFormsApp1/obj
-
-/dongtienCLI/.vs
-/dongtienCLI/dongtienCLI.sln
-/extracting-inline-styles/extracting-inline-styles/bin/Debug/netcoreapp3.1
-/extracting-inline-styles/extracting-inline-styles/obj
-/extracting-inline-styles/.vs/extracting-inline-styles
-/dongtienCLI/dongtienCLI/bin
-/dongtienCLI/dongtienCLI/obj
-/dongtienCLI/dongtienCLI/Properties/PublishProfiles
-/DownloadGGDriverPDF/Setup1/Release
-/DownloadGGDriverPDF/Setup1/Debug
-/DownloadGGDriverPDF/.vs/DownloadGGDriverPDF
-/DownloadGGDriverPDF/WinFormsApp1/bin/Release/netcoreapp3.1
+extracting-inline-styles/extracting-inline-styles/bin/Debug
+dongtienCLI/dongtienCLI/obj/Debug/
+extracting-inline-styles/extracting-inline-styles/obj/Debug/
+extracting-inline-styles/extracting-inline-styles/obj/
